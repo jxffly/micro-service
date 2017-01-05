@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.junq.examples.emall.boot</groupId>
+  <artifactId>emall-microservice-example</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>account-service</module>
+    <module>cart-service</module>
+    <module>catalog-service</module>
+    <module>mailer-service</module>
+    <module>message-service</module>
+    <module>order-service</module>
+    <module>payment-service</module>
+    <module>pom.xml</module>
+    <module>product-service</module>
+    <module>push-notification-service</module>
+    <module>recommendation-service</module>
+    <module>review-service</module>
+    <module>search-service</module>
+    <module>shipment-service</module>
+  </modules>
+
+</project>
