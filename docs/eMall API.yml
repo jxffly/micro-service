@@ -1,0 +1,264 @@
+---
+swagger: '2.0'
+
+################################################################################
+#                              API Information                                 #
+################################################################################
+info:
+  version: v1
+  title: eMall API
+  contact:
+    name: Junqiang Liu
+    url: https://junq.io
+    email: junq.me@gmail.com
+  description: |
+    [StuQ-1160]《跟我做一个Java微服务实战项目》在线课程中示例项目eMall的API文档，该项目API将
+    使用RESTful风格API，响应消息支持格式暂仅支持JSON。
+
+    ## 响应消息结构
+
+    ### 消息包装结构
+
+    每个返回消息里面都会包含包装数据数据，示例如下：
+
+    ```json
+        {
+            "meta": {
+                "code": 200
+            },
+            "data": {
+                ...
+            },
+            "pagination": {
+                "next_url": "...",
+                "next_max_id": "13872296"
+            }
+        }
+    ```
+
+    ***`meta`会默认返回，`pagination`会在支持分页的API返回***
+
+    #### 元数据信息
+
+    `meta` 在返回消息体里面代表额外的信息，如业务状态码、业务错误信息等，如下示例是发生错误时的meta信息：
+
+    ```json
+        {
+            "meta": {
+                "error_type": "IllegalParameters",
+                "code": 400,
+                "error_message": "..."
+            }
+        }
+    ```
+
+    请求正常时，HTTP状态码为`200`，`meta`里面的`code`按照`代码对照表`来，此时`error_type`、
+    `error_message`不存在，在状态码非`200`是，`code`、`error_type`、`error_message`
+    必存在。
+
+    #### 数据信息
+
+    `data` 在返回消息体里面代表实际数据信息，如用户列表、订单列表等，数据结构可能是列表或Map。
+
+    #### 分页信息
+
+    `pagination` 在返回消息体里面代表分页信息，通过分页信息体可以知道需要请求更多数据该如何处理，
+    通过 `next_url` 来获取下一页的数据，`next_max_id` 可供调用者自由组合使用。
+
+    ```json
+        {
+            ...
+            "pagination": {
+                "next_url": "https://emall-api.junq.io/v1/products/hot?max_id=13872296",
+                "next_max_id": "13872296"
+            }
+        }
+    ```
+
+    如果要指定列表返回数据大小，使用 `count` 参数。
+
+################################################################################
+#                  Host, Base Path, Schemes and Content Types                  #
+################################################################################
+host: emall-api.junq.io
+basePath: /v1
+schemes:
+  - https
+produces:
+  - application/json
+consumes:
+  - application/json
+
+################################################################################
+#                                   Tags                                       #
+################################################################################
+tags:
+  - name: 产品
+    description: 与`产品`相关的API
+  - name: 用户
+    description: 与`用户`相关的API
+  - name: 评价
+    description: 与`评价`相关的API
+  - name: 物流
+    description: 与`物流`相关的API
+  - name: 订单
+    description: 与`订单`相关的API
+  - name: 支付
+    description: 与`支付`相关的API
+  - name: 消息
+    description: 与`消息`相关的API，指站内消息
+  - name: 推送
+    description: 与`推送`相关的API
+  - name: 搜索
+    description: 与`搜索`相关的API
+
+################################################################################
+#                                   Parameters                                 #
+################################################################################
+
+parameters:
+  user-id:
+    name: user-id
+    in: path
+    description: 用户唯一id
+    type: integer
+    format: int32
+    required: true
+  product-id:
+    name: product-id
+    in: path
+    description: 产品唯一id
+    type: integer
+    format: int32
+    required: true
+  order-id:
+    name: order-id
+    in: path
+    description: 订单唯一id
+    type: integer
+    format: int32
+    required: true
+  shipment-id:
+    name: shipment-id
+    description: 物理信息唯一id
+    in: path
+    type: integer
+    format: int32
+    required: true
+  transaction-id:
+    name: transaction-id
+    description: 支付交易唯一id
+    in: path
+    type: string
+    required: true
+  review-id:
+    name: review-id
+    description: 产品评价唯一id
+    in: path
+    type: integer
+    format: int32
+    required: true
+  message-id:
+    name: message-id
+    description: 消息唯一id
+    in: path
+    type: integer
+    format: int32
+    required: true
+  keyword:
+    name: keyword
+    description: 搜索时关键字
+    in: path
+    type: string
+    required: true
+
+
+################################################################################
+#                                           Paths                              #
+################################################################################
+
+paths:
+  /products/hot:
+    get:
+      tags:
+        - 产品
+      summary: 热卖`产品`列表
+      description: |
+        请求热卖的`产品`列表，通过 **count** 参数进行返回数据列表大小设置，支持分页。
+      parameters:
+        -
+          name: count
+          in: query
+          description: 返回列表数据大小，默认20条
+          required: false
+          type: integer
+          format: int32
+      responses:
+        200:
+          description: 返回`产品`对象列表
+          schema:
+            properties:
+              data:
+                type: array
+                items:
+                  $ref: '#/definitions/Product'
+
+  /products/{product-id}:
+    parameters:
+      - $ref: '#/parameters/product-id'
+    get:
+      tags:
+        - 产品
+      summary: 获取指定id产品详情
+      responses:
+        200:
+          description: 返回`产品`对象
+          schema:
+            properties:
+              data:
+                $ref: '#/definitions/Product'
+
+
+
+################################################################################
+#                                 Definitions                                  #
+################################################################################
+
+definitions:
+  Product:
+    type: object
+    description: 产品对象
+    required:
+      - id
+      - type
+      - name
+      - summary
+      - description
+      - price
+      - images
+    properties:
+      id:
+        type: integer
+        format: int32
+      type:
+        type: integer
+        format: int32
+        description: 产品类型
+      name:
+        type: string
+        description: 产品名称
+      summary:
+        type: string
+        description: 产品简述
+      description:
+        type: string
+        description: 产品详情
+      price:
+        type: integer
+        format: int32
+        description: 产品价格，以分为单位
+      images:
+        description: 产品图片列表
+        type: array
+        items:
+          type: string
