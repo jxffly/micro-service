@@ -1,5 +1,7 @@
 ## 学习资料
 
+![课程时间表](assets/README-38f44.png)
+
 ### 开发环境准备
 
 * 一台PC或Mac，推荐Mac或运行Linux的PC，具有终端、命令行，可翻墙
