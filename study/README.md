@@ -13,6 +13,14 @@
 * [Spring Boot CLI 1.4.3][1889f5d8]（可选）
 * [Postman][5dab86b4]（可选）
 
+### Microservices Architecture Patterns
+
+![Microservices Architecture Patterns](assets/README-ea5d0.png)
+
+### 相关文章推荐
+
+* [Introduction to Microservices][36b47fda]
+
   [c55bd24c]: http://www.oracle.com/technetwork/java/javase/overview/index.html "Oracle Java SE Development Kit"
   [5afe3269]: http://maven.apache.org/ "Apache Maven"
   [d7369a3f]: http://www.eclipse.org/downloads/packages/eclipse-ide-java-developers/neon2 "Eclipse for Java Developers"
@@ -24,3 +32,4 @@
   [007868bc]: http://repo.spring.io/release/org/springframework/boot/spring-boot-cli/1.4.3.RELEASE/spring-boot-cli-1.4.3.RELEASE-bin.tar.gz "spring-boot-cli-1.4.3.RELEASE-bin.tar.gz"
   [2ca06797]: http://swagger.io/swagger-editor/ "Swagger Editor"
   [5dab86b4]: https://www.getpostman.com/ "Postman"
+  [36b47fda]: https://www.nginx.com/blog/introduction-to-microservices/ "Introduction to Microservices"
