@@ -178,6 +178,23 @@ parameters:
 ################################################################################
 
 paths:
+  /users/{user-id}:
+    get:
+      tags:
+        - 用户
+      summary: 根据用户id获取用户信息
+      description: |
+        通过用户id获取用户对象，此处的用户id对应的是display_id，真实用户id和password字段不返回真实数据。
+      parameters:
+        - $ref: '#/parameters/user-id'
+      responses:
+        200:
+          description: 返回`产品`对象
+          schema:
+            properties:
+              data:
+                $ref: '#/definitions/User'
+
   /products/hot:
     get:
       tags:
@@ -236,10 +253,12 @@ definitions:
       - description
       - price
       - images
+      - created_at
+      - changed_at
     properties:
       id:
         type: integer
-        format: int32
+        format: int64
       type:
         type: integer
         format: int32
@@ -252,7 +271,7 @@ definitions:
         description: 产品简述
       description:
         type: string
-        description: 产品详情
+        description: 产品详情，支持HTML
       price:
         type: integer
         format: int32
@@ -262,3 +281,307 @@ definitions:
         type: array
         items:
           type: string
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  User:
+    type: object
+    description: 用户对象
+    required:
+      - id
+      - display_id
+      - display_name
+      - gender
+      - avatar
+      - password
+      - email
+      - mobile_phone
+      - created_at
+      - changed_at
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: 用户id，不对外显现，仅内部记录使用
+      display_id:
+        type: string
+        description: 外部使用id
+      display_name:
+        type: string
+      gender:
+        type: integer
+        format: int32
+      avatar:
+        type: string
+      password:
+        type: string
+        format: password
+      email:
+        type: string
+      mobile_phone:
+        type: string
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  Review:
+    type: object
+    description: 评价对象
+    required:
+      - id
+      - product_id
+      - user_id
+      - subject
+      - text
+      - rating
+      - created_at
+      - changed_at
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: 评价id
+      product_id:
+        type: integer
+        format: int64
+      user_id:
+        type: string
+      subject:
+        type: string
+        description: 评价标题
+      text:
+        type: string
+        description: 评价详情
+      rating:
+        type: integer
+        format: int32
+        description: 评星
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  Order:
+    type: object
+    description: 订单对象
+    required:
+      - id
+      - user_id
+      - products
+      - amount
+      - status
+      - created_at
+      - changed_at
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: 订单id
+      user_id:
+        type: string
+      products:
+        type: string
+        description: 订购的商品信息，以JSON的方式存储
+      amount:
+        type: integer
+        format: int32
+        description: 订购商品的总金额，以分为单位
+      status:
+        type: integer
+        format: int32
+        description: 订单的状态，未付款、已付款、付款失败、已取消、已完成、已发货，//TODO 退货的状态该如何处理?
+      payment_type:
+        type: string
+        description: 支付方式
+      note:
+        type: string
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  Shipment:
+    type: object
+    description: 物流对象
+    required:
+      - id
+      - order_id
+      - company
+      - shipment_no
+      - created_at
+      - changed_at
+    properties:
+      id:
+        type: integer
+        format: int64
+      order_id:
+        type: integer
+        format: int64
+      company:
+        type: string
+        description: 物流公司
+      shipment_no:
+        type: string
+        description: 物流订单号
+      status_text:
+        type: string
+        description: 物流跟踪信息
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  Payment:
+    type: object
+    description: 支付对象
+    required:
+      - id
+      - order_id
+      - user_id
+      - channel
+      - amount
+      - subject
+      - created_at
+      - changed_at
+    properties:
+      id:
+        type: integer
+        format: int64
+      order_id:
+        type: integer
+        format: int64
+        description: 订单id
+      user_id:
+        type: integer
+        format: int64
+        description: 用户id
+      channel:
+        type: string
+        description: 支付渠道号
+      amount:
+        type: integer
+        format: int32
+        description: 总金额，以分为单位
+      subject:
+        type: string
+        description: 商品/订单 标题
+      body:
+        type: string
+        description: 商品/订单 详情
+      client_ip:
+        type: string
+        description: 客户来源IP地址
+      status:
+        type: integer
+        format: int32
+        description: 支付订单状态
+      settle_amount:
+        type: integer
+        format: int32
+        description: 结算金额，以分为单位
+      settle_time:
+        type: string
+        format: date-time
+        description: 结算时间
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  Message:
+    type: object
+    description: 站内消息对象
+    required:
+      - id
+      - to_id
+      - subject
+      - status
+      - created_at
+      - changed_at
+    properties:
+      id:
+        type: integer
+        format: int64
+        description: 消息id
+      to_id:
+        type: string
+        description: 收件人id
+      subject:
+        type: string
+        description: 标题
+      body:
+        type: string
+        description: 内容
+      status:
+        type: integer
+        format: int32
+        description: 状态，未读、已读
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  PushNotification:
+    type: object
+    description: 推送对象
+    required:
+      - id
+      - status
+      - created_at
+      - changed_at
+    properties:
+      id:
+        type: integer
+        format: int64
+      device_id:
+        type: string
+      platform:
+        type: string
+      status:
+        type: integer
+        format: int32
+      badge:
+        type: integer
+        format: int32
+      body:
+        type: string
+      link:
+        type: string
+      created_at:
+        type: string
+        format: date-time
+      changed_at:
+        type: string
+        format: date-time
+  SearchResult:
+    type: object
+    description: 搜索结果
+    properties:
+      id:
+        type: string
+        description: 搜索查询id
+      keyword:
+        type: string
+        description: 搜索关键字
+      query:
+        type: string
+        description: 搜索时其它条件
+      offset:
+        type: integer
+        format: int32
+      limit:
+        type: integer
+        format: int32
+      result:
+        type: string
+        description: 搜索结果
