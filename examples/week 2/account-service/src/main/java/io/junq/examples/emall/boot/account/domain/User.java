@@ -2,28 +2,45 @@ package io.junq.examples.emall.boot.account.domain;
 
 import java.util.Date;
 
+import javax.validation.constraints.Min;
+
+import org.hibernate.validator.constraints.NotBlank;
+import org.joda.time.DateTime;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Data
 public class User {
+	@JsonIgnore
 	private Long id;
 
 	private String displayId;
 
+	@NotBlank
 	private String displayName;
 
+	@Min(0)
 	private Integer gender;
 
+	@NotBlank
 	private String avatar;
 
+	@NotBlank
 	private String password;
 
+	@NotBlank
 	private String email;
 
+	@NotBlank
 	private String mobilePhone;
 
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
 	private Date createdAt;
 
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
 	private Date changedAt;
 
 	protected User() {
@@ -80,13 +97,13 @@ public class User {
 			return this;
 		}
 		
-		public Builder withCreatedAt(Date createdAt) {
-			this.createdAt = createdAt;
+		public Builder withCreatedAt(long createdTimestamp) {
+			this.createdAt = new DateTime(createdTimestamp).toDate();
 			return this;
 		}
 		
-		public Builder withChangedAt(Date changedAt) {
-			this.changedAt = changedAt;
+		public Builder withChangedAt(long changedTimestamp) {
+			this.changedAt = new DateTime(changedTimestamp).toDate();
 			return this;
 		}
 		

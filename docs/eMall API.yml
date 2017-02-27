@@ -178,6 +178,30 @@ parameters:
 ################################################################################
 
 paths:
+  /users:
+    post:
+      tags:
+        - 用户
+      summary: 创建用户
+      description: |
+        创建用户
+      parameters:
+        -
+          name: user
+          in: body
+          description: User对象json格式实例
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        201:
+          description: 返回`产品`对象列表
+          schema:
+            properties:
+              data:
+                type: object
+                $ref: '#/definitions/User'
+
   /users/{user-id}:
     get:
       tags:
