@@ -20,7 +20,7 @@ public class EmallEurekaClientApplication {
 	
 	@RequestMapping("/account-service")
 	public String serviceInfo(){
-		InstanceInfo instance = client.getNextServerFromEureka("account-service-eureka", false);
+		InstanceInfo instance = client.getNextServerFromEureka("account-service", false);
 		return instance.getHomePageUrl();
 	}
 	

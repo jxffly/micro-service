@@ -23,7 +23,7 @@ public class EmallEurekaClientApplication {
 	
 	@RequestMapping("/account-service")
 	public String serviceInfo(){
-		ServiceInstance instance = loadBalancer.choose("account-service-consul");
+		ServiceInstance instance = loadBalancer.choose("account-service");
 		if (instance == null)
 			return "Could not find any account-service instances.";
 		
