@@ -1,15 +1,27 @@
 package io.junq.examples.emall.boot.product.web;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.netflix.appinfo.InstanceInfo;
+import com.netflix.discovery.EurekaClient;
 
 import io.junq.examples.emall.boot.product.domain.Product;
 import io.junq.examples.emall.boot.product.service.ProductService;
@@ -27,10 +39,15 @@ import io.swagger.annotations.ApiResponses;
  */
 @RestController("产品相关API")
 @RequestMapping(value = "/v1", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+@EnableEurekaClient
+@Configuration
 public class ProductRestController {
 	
 	private final static Logger LOGGER = LoggerFactory.getLogger(ProductRestController.class);
 
+	@Autowired
+	private EurekaClient client;
+	
 	@Autowired
 	private ProductService productService;
 
@@ -55,5 +72,18 @@ public class ProductRestController {
 	public Product findProductById(@PathVariable Long productId) {
 		LOGGER.debug("try to find product by id: " + productId);
 		return productService.findProductById(productId);
+	}
+	
+	@ApiOperation(value = "查询依赖服务的信息", notes = "")
+	@RequestMapping(method = RequestMethod.GET, value = "/system/service-dependencies")
+	public Map<String, String> findDependencyServices() {
+		LOGGER.debug("try to find dependency services.");
+		
+		Map<String, String> servicesMap = new HashMap<String, String>();
+		InstanceInfo instance = client.getNextServerFromEureka("account-service", false);
+		if (instance != null)
+			servicesMap.put("account-service", instance.getHomePageUrl());
+		
+		return servicesMap;
 	}
 }

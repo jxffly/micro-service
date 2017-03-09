@@ -14,7 +14,7 @@ management:
 
 spring:
   application:
-    name: account-service-consul
+    name: account-service
     instance_id: 001
   cloud:
     inetutils:

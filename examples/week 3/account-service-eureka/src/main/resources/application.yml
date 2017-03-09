@@ -14,8 +14,13 @@ management:
 
 spring:
   application:
-    name: account-service-eureka
+    name: account-service
     instance_id: 001
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 192.168
+        - 10.0
   datasource:
     url: jdbc:mysql://localhost:3306/emall
     username: emall
