@@ -1,0 +1,33 @@
+server:
+  port: 9999
+  
+logging:
+  level:
+    root: INFO
+    io.junq: DEBUG 
+
+management:
+  port: 9998
+  context-path: /manage
+  security:
+    enabled: false
+
+spring:
+  application:
+    name: account-service-consul
+    instance_id: 001
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        enable: true
+        instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}
+        healthCheckPath: ${management.context-path}/health
+        healthCheckInterval: 15s
+        tags: dev, emall
+  datasource:
+    url: jdbc:mysql://localhost:3306/emall
+    username: emall
+    password: emallPwd
+    driver-class-name: com.mysql.jdbc.Driver
