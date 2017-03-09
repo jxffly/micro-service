@@ -1,0 +1,30 @@
+server:
+  port: 9997
+  
+logging:
+  level:
+    root: INFO
+    io.junq: DEBUG 
+
+management:
+  port: 9996
+  context-path: /manage
+  security:
+    enabled: false
+
+spring:
+  application:
+    name: emall-client
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 192.168
+        - 10.0
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        register: false # 仅做客户端，发现服务不进行注册
+    
+    
+    
