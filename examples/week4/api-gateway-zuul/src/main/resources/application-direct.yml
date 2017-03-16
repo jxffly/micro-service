@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: emall-gateway
+
+zuul:
+  prefix: /v1
+  routes:  
+    orders:
+      url: http://localhost:9903/v1/orders
+    users:
+      url: http://localhost:9999/v1/users
+    products:
+      url: http://localhost:9901/v1/products

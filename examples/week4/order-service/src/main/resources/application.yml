@@ -26,3 +26,15 @@ spring:
     username: emall
     password: emallPwd
     driver-class-name: com.mysql.jdbc.Driver
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    appGroupName: emall
+    instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}

@@ -1,38 +1,49 @@
 server:
-  port: 9901
-  
+  port: 8080
+
 logging:
   level:
     root: INFO
     io.junq: DEBUG 
 
 management:
-  port: 9900
+  port: 8079
   context-path: /manage
   security:
     enabled: false
 
 spring:
   application:
-    name: product-service
+    name: emall-gateway
     instance_id: 001
   cloud:
     inetutils:
       preferred-networks:
         - 192.168
         - 10.0
-  datasource:
-    url: jdbc:mysql://localhost:3306/emall
-    username: emall
-    password: emallPwd
-    driver-class-name: com.mysql.jdbc.Driver
 
 eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-  instance:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
     appGroupName: emall
     instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}
+   
+zuul:
+  ignoredServices: '*'
+  routes:  
+    orders:
+      service-id: order-service
+      path: /v1/orders/**
+      stripPrefix: false
+    users:
+      service-id: account-service
+      path: /v1/users/**
+      stripPrefix: false
+    products:
+      service-id: product-service
+      path: /v1/products/**
+      stripPrefix: false
