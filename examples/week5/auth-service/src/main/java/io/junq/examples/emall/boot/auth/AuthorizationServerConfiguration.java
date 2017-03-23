@@ -33,26 +33,6 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 	@Autowired
 	private AuthenticationManager authManager;
 
-	@Override
-	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(authManager);
-	}
-
-	@Override
-	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
-		security.checkTokenAccess("permitAll()");
-	}
-
-	@Override
-	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.jdbc(dataSource);
-	}
-
-	@Bean
-	public TokenStore tokenStore() {
-		return new JdbcTokenStore(dataSource);
-	}
-
 	@Bean
 	public DataSourceInitializer dataSourceInitializer(final DataSource dataSource) {
 		final DataSourceInitializer initializer = new DataSourceInitializer();
@@ -66,6 +46,29 @@ public class AuthorizationServerConfiguration extends AuthorizationServerConfigu
 		populator.addScript(schemaScript);
 		populator.addScript(dataScript);
 		return populator;
+	}
+	
+	@Override
+	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+		endpoints.authenticationManager(authManager)
+			.tokenStore(tokenStore());
+	}
+
+	@Override
+	public void configure(AuthorizationServerSecurityConfigurer security) throws Exception {
+		security
+			.checkTokenAccess("permitAll()")
+			.allowFormAuthenticationForClients();
+	}
+
+	@Override
+	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+		clients.jdbc(dataSource);
+	}
+
+	@Bean
+	public TokenStore tokenStore() {
+		return new JdbcTokenStore(dataSource);
 	}
 
 }

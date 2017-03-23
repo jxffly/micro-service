@@ -1,10 +1,17 @@
 server:
   port: 9020
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: logs
+      pattern: '%h %l %u %t "%r" %s %b %Dms'
+      buffered: false
 
 logging:
   level:
     root: INFO
     io.junq: DEBUG 
+    org.springframework.security: INFO
 
 management:
   port: 9019
@@ -31,3 +38,15 @@ security:
   oauth2:
     resource:
       filter-order: 3
+      
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    appGroupName: emall
+    instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}

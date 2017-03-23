@@ -1,16 +1,38 @@
 server:
   port: 9903
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: logs
+      pattern: '%h %l %u %t "%r" %s %b %Dms'
+      buffered: false
   
 logging:
   level:
     root: INFO
     io.junq: DEBUG 
+    org.springframework.security: DEBUG
 
 management:
   port: 9902
   context-path: /manage
   security:
     enabled: false
+
+emall:
+  oauth2:
+    access-token-uri: /oauth/token
+    user-authorization-uri: /oauth/authorize
+    check-token-access: /oauth/check_token
+    client-id: test-client-web
+    client-secret: test-client-web-secret
+  services:
+    auth-service: auth-service
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3      
 
 spring:
   application:
