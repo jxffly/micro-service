@@ -1,0 +1,18 @@
+server:
+  port: 9010
+
+logging:
+  level:
+    root: INFO
+    io.junq: DEBUG 
+
+management:
+  port: 9902
+  context-path: /manage
+  security:
+    enabled: false
+  
+security:
+  oauth2:
+    resource:
+      filter-order: 3
