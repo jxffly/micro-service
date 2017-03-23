@@ -7,7 +7,7 @@ logging:
     io.junq: DEBUG 
 
 management:
-  port: 9902
+  port: 9009
   context-path: /manage
   security:
     enabled: false
