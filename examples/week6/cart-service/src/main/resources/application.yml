@@ -1,0 +1,47 @@
+server:
+  port: 9905
+  tomcat:
+    accesslog:
+      enabled: true
+      directory: logs
+      pattern: '%h %l %u %t "%r" %s %b %Dms'
+      buffered: false
+  
+logging:
+  level:
+    root: INFO
+    io.junq: DEBUG 
+    org.springframework.security: DEBUG
+
+management:
+  port: 9904
+  context-path: /manage
+  security:
+    enabled: false
+
+spring:
+  application:
+    name: cart-service
+    instance_id: 001
+  cloud:
+    inetutils:
+      preferred-networks:
+        - 192.168
+        - 10.0
+  datasource:
+    url: jdbc:mysql://localhost:3306/emall
+    username: emall
+    password: emallPwd
+    driver-class-name: com.mysql.jdbc.Driver
+
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+  instance:
+    statusPageUrlPath: ${management.context-path}/info
+    healthCheckUrlPath: ${management.context-path}/health
+    appGroupName: emall
+    instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}
