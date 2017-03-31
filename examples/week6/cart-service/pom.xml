@@ -25,6 +25,7 @@
 		<springfox.version>2.4.0</springfox.version>
 		<jackson.version>2.8.6</jackson.version>
 		<joda-time.version>2.9.6</joda-time.version>
+		<dbh2.version>1.4.193</dbh2.version>
 	</properties>
 
 	<dependencies>
@@ -106,6 +107,13 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
+		</dependency>
+
+		<!-- H2 DB -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${dbh2.version}</version>
 		</dependency>
 	</dependencies>
 

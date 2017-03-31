@@ -2,6 +2,7 @@ package io.junq.examples.emall.boot.cart.domain;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.validation.constraints.NotNull;
@@ -107,7 +108,7 @@ public class Cart {
 		}
 		
 		public Builder withItems(List<Item> items) {
-			this.items = items;
+			this.items = new LinkedList<Item>(items);
 			return this;
 		}
 		
