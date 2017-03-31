@@ -109,6 +109,9 @@ public class CartRepositoryTest {
 					.getItems().get(0)
 						.getQuantity() == quantity
 					);
-		
+		assertTrue(cartRepo.findCartsByCustomerId(customerId).get(0)
+					.getItems().get(0)
+						.getItemId().equals(item.getItemId())
+				);
 	}
 }

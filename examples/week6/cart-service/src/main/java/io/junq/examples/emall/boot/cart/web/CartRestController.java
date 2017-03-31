@@ -49,7 +49,8 @@ public class CartRestController {
 	@RequestMapping(method = RequestMethod.GET, value = "/carts/{customerId}")
 	public List<Cart> findCartsByCustomerId(@PathVariable String customerId) {
 		LOGGER.debug("try to find carts by customer id: " + customerId);
-		return cartService.findCartsByCustomerId(customerId);
+		List<Cart> carts = cartService.findCartsByCustomerId(customerId);
+		return carts;
 	}
 	
 	@ApiOperation(value = "清空购物车", notes = "")
