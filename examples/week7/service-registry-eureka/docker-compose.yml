@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+  service-registry-eureka-1:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: stuq-1160-emall/service-registry-eureka
+    hostname: emall-service-registry-eureka-1
+    restart: always
+    networks:
+      - service-registry-net
+    cap_drop:
+      - all
+    cap_add:
+      - NET_BIND_SERVICE
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "18761:8761"
+    environment:
+      EUREKA_INSTANCE_HOSTNAME: emall-service-registry-eureka-1
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://emall-service-registry-eureka-2:8761/eureka
+  service-registry-eureka-2:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    image: stuq-1160-emall/service-registry-eureka
+    hostname: emall-service-registry-eureka-2
+    restart: always
+    networks:
+      - service-registry-net
+    cap_drop:
+      - all
+    cap_add:
+      - NET_BIND_SERVICE
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "18762:8761"
+    environment:
+      EUREKA_INSTANCE_HOSTNAME: emall-service-registry-eureka-2
+      EUREKA_CLIENT_SERVICEURL_DEFAULTZONE: http://emall-service-registry-eureka-1:8761/eureka
+
+networks:
+  service-registry-net:
+    driver: bridge
