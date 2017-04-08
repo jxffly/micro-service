@@ -32,9 +32,6 @@ services:
       MYSQL_USER: emall
       MYSQL_PASSWORD: emallPwd
   cart:
-    build:
-      context: .
-      dockerfile: Dockerfile
     image: stuq-1160-emall/cart-service
     depends_on:
       - cart-db

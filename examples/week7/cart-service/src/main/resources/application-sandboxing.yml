@@ -46,15 +46,3 @@ spring:
     initialize: true
     continue-on-error: false
     
-eureka:
-  client:
-    healthcheck:
-      enabled: true
-    serviceUrl:
-#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-      defaultZone: ${EUREKA_URI}
-  instance:
-    statusPageUrlPath: ${management.context-path}/info
-    healthCheckUrlPath: ${management.context-path}/health
-    appGroupName: emall
-    instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}

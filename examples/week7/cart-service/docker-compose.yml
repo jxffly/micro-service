@@ -35,5 +35,8 @@ services:
     ports:
       - "29905:9905"
       - "29904:9904"
+    environment:
+      CONSUL_HOST: localhost
+      CONSUL_PORT: 8500
 volumes:
     db_data:
