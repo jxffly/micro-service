@@ -1,0 +1,60 @@
+version: '2'
+
+services:
+  service-registry-consul:
+    image: "consul"
+    container_name: "service-registry-consul"
+    hostname: "service-registry-consul"
+    ports:
+      - "53"
+      - "8300"
+      - "8301"
+      - "8302"
+      - "8400"
+      - "18500:8500"
+      - "8600"
+    command: "agent -server -bootstrap-expect=1 -datacenter=dc-shenzhen -client 0.0.0.0 -ui"
+    networks:
+      - stuq-1160-emall-net
+  cart-db:
+    image: mysql/mysql-server:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    hostname: cart-db
+    restart: always
+    ports:
+      - "3306"
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      MYSQL_ROOT_PASSWORD: cart0bP@ssw0rd
+      MYSQL_DATABASE: emall
+      MYSQL_USER: emall
+      MYSQL_PASSWORD: emallPwd
+  cart:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: stuq-1160-emall/cart-service
+    depends_on:
+      - cart-db
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      CONSUL_HOST: service-registry-consul
+      CONSUL_PORT: 8500
+    hostname: cart
+    restart: always
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "29905:9905"
+      - "29904:9904"
+
+volumes:
+    db_data:
+
+networks:
+  stuq-1160-emall-net:
+    driver: bridge

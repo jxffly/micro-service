@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  service-registry-consul:
+    image: "consul"
+    container_name: "service-registry-consul"
+    hostname: "service-registry-consul"
+    ports:
+      - "18300:8300"
+      - "18301:8301"
+      - "18302:8302"
+      - "18400:8400"
+      - "18500:8500"
+      - "18600:8600"
+    command: "agent -server -bootstrap-expect=1 -datacenter=dc-shenzhen -client 0.0.0.0 -ui"
+
+volumes:
+    db_data:
+
+networks:
+  service-registry-net:
+    driver: bridge

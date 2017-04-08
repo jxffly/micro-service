@@ -28,6 +28,15 @@ spring:
       preferred-networks:
         - 192.168
         - 10.0
+    consul:
+      host: ${CONSUL_HOST}
+      port: ${CONSUL_PORT}
+      discovery:
+        enable: true 
+        instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value} # 实例ID
+        healthCheckPath: ${management.context-path}/health # 健康检测路径
+        healthCheckInterval: 15s # 健康检测时间间隔
+        tags: emall # 服务的标签
   datasource:
     url: jdbc:mysql://cart-db/emall?autoReconnect=true&useSSL=false
     username: emall
@@ -42,7 +51,8 @@ eureka:
     healthcheck:
       enabled: true
     serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+      defaultZone: ${EUREKA_URI}
   instance:
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health

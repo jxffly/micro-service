@@ -28,6 +28,15 @@ spring:
       preferred-networks:
         - 192.168
         - 10.0
+    consul:
+      host: localhost
+      port: 18500
+      discovery:
+        enable: true 
+        instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value} # 实例ID
+        healthCheckPath: ${management.context-path}/health # 健康检测路径
+        healthCheckInterval: 15s # 健康检测时间间隔
+        tags: emall # 服务的标签
   datasource:
     url: jdbc:mysql://localhost:3306/emall
     username: emall
@@ -36,15 +45,3 @@ spring:
     schema: file:data/schema-mysql.sql
     initialize: true
     continue-on-error: false
-
-eureka:
-  client:
-    healthcheck:
-      enabled: true
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-  instance:
-    statusPageUrlPath: ${management.context-path}/info
-    healthCheckUrlPath: ${management.context-path}/health
-    appGroupName: emall
-    instanceId: ${spring.application.name}:${spring.application.instance_id}:${random.value}
