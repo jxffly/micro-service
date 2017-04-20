@@ -15,7 +15,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.1.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
 	<properties>
@@ -57,11 +57,68 @@
 		</dependencies>
 	</dependencyManagement>
 
+	<profiles>
+		<profile>
+			<id>development</id>
+			<properties>
+				<build.profile.id>development</build.profile.id>
+			</properties>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<build>
+				<resources>
+					<resource>
+						<directory>${basedir}/src/main/resources</directory>
+						<filtering>true</filtering>
+						<includes>
+							<include>**/*.yml</include>
+							<include>**/*.yaml</include>
+							<include>**/*.properties</include>
+						</includes>
+					</resource>
+					<resource>
+						<directory>${basedir}/data</directory>
+						<filtering>true</filtering>
+						<includes>
+							<include>**/*.sql</include>
+						</includes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+		<profile>
+			<id>sandboxing</id>
+			<properties>
+				<build.profile.id>sandboxing</build.profile.id>
+			</properties>
+			<build>
+				<resources>
+					<resource>
+						<directory>${basedir}/src/main/resources</directory>
+						<excludes>
+							<exclude>**/*.yml</exclude>
+							<exclude>**/*.yaml</exclude>
+							<exclude>**/*.properties</exclude>
+							<exclude>**/*.jks</exclude>
+						</excludes>
+					</resource>
+				</resources>
+			</build>
+		</profile>
+	</profiles>
+
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<profiles>
+						<profile>development</profile>
+						<profile>sandboxing</profile>
+					</profiles>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
