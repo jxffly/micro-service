@@ -1,0 +1,33 @@
+server:
+  port: 9888
+
+management:
+  port: 9887
+  context-path: /manage
+  security:
+    enabled: false
+
+logging:
+  level:
+    com.netflix.discovery: 'OFF'
+    org.springframework.cloud: 'DEBUG'
+    
+security:
+  user:
+    name: root
+    password: c0nfIgS3cr3t
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: file://Users/junqiangliu/Development/git_repos/spring-cloud-config-sample-repo
+          searchPaths: '{application}'
+          
+encrypt:
+  key-store:
+    alias: emall-config-server-key
+    location: classpath:/config-server.jks
+    password: 3m@ll-st0r3-s3cr3t
+    secret: 3m@ll-k3y-s3cr3t
