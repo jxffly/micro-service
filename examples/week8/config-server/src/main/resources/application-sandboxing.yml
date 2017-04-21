@@ -22,8 +22,10 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/cnjunq/spring-cloud-config-sample-repo
+          uri: https://git.oschina.net/cnjunq/spring-cloud-config-sample-repo.git
           searchPaths: '{application}'
+          cloneOnStart: true
+          timeout: 15
           
 encrypt:
   key-store:

@@ -24,6 +24,8 @@ spring:
         git:
           uri: file:/Users/junqiangliu/Development/git_repos/spring-cloud-config-sample-repo
           searchPaths: '{application}'
+          cloneOnStart: true
+          timeout: 5
           
 encrypt:
   key-store:
