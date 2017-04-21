@@ -10,4 +10,9 @@ spring:
       profile: ${spring.profiles.active:development}
       label: master
       enabled: true
+      fail-fast: true
+      retry:
+        initial-interval: 5000
+        max-attempts: 20
+        max-interval: 100000
       
