@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: account-service
+  cloud:
+    config:
+      name: ${spring.application.name}
+      uri: http://localhost:9888
+      username: root
+      password: c0nfIgS3cr3t
+      profile: ${spring.profiles.active:development}
+      label: master
+      enabled: true
