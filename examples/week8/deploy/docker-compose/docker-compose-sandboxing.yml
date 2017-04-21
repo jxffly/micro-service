@@ -1,0 +1,170 @@
+version: '2.1'
+
+services:
+  config-server:
+    image: stuq-1160-emall/config-server
+    hostname: config-server
+    restart: always
+    read_only: true
+    networks:
+      - stuq-1160-emall-net
+    ports:
+      - "9888:80"
+      - "9887:81"
+  service-registry-consul:
+    image: "consul"
+    container_name: "service-registry-consul"
+    hostname: "service-registry-consul"
+    ports:
+      - "53"
+      - "8300"
+      - "8301"
+      - "8302"
+      - "8400"
+      - "18500:8500"
+      - "8600"
+    command: "agent -server -bootstrap-expect=1 -datacenter=dc-shenzhen -client 0.0.0.0 -ui"
+    networks:
+      - stuq-1160-emall-net
+  auth-db:
+    image: mysql/mysql-server:5.7
+    volumes:
+      - db_data:/var/lib/mysql-auth
+    hostname: auth-db
+    restart: always
+    ports:
+      - "3306"
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      MYSQL_ROOT_PASSWORD: auth0bP@ssw0rd
+      MYSQL_DATABASE: oauth
+      MYSQL_USER: oauth
+      MYSQL_PASSWORD: oauthPwd
+  cart-db:
+    image: mysql/mysql-server:5.7
+    volumes:
+      - db_data:/var/lib/mysql-cart
+    hostname: cart-db
+    restart: always
+    ports:
+      - "3306"
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      MYSQL_ROOT_PASSWORD: cart0bP@ssw0rd
+      MYSQL_DATABASE: emall
+      MYSQL_USER: emall
+      MYSQL_PASSWORD: emallPwd
+  cart:
+    image: stuq-1160-emall/cart-service
+    depends_on:
+      - config-server
+      - cart-db
+      - service-registry-consul
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      SPRING_PROFILES_ACTIVE: sandboxing
+      CONSUL_HOST: service-registry-consul
+      CONSUL_PORT: 8500
+      CONFIG_SERVER_URI: http://config-server
+    hostname: cart
+    restart: always
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "9905:80"
+      - "9904:81"
+  account:
+    image: stuq-1160-emall/account-service
+    depends_on:
+      - config-server
+      - cart-db
+      - service-registry-consul
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      SPRING_PROFILES_ACTIVE: sandboxing
+      CONSUL_HOST: service-registry-consul
+      CONSUL_PORT: 8500
+      CONFIG_SERVER_URI: http://config-server
+    hostname: account
+    restart: always
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "9999:80"
+      - "9998:81"
+  auth:
+    image: stuq-1160-emall/auth-service
+    depends_on:
+      - config-server
+      - auth-db
+      - service-registry-consul
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      SPRING_PROFILES_ACTIVE: sandboxing
+      CONSUL_HOST: service-registry-consul
+      CONSUL_PORT: 8500
+      CONFIG_SERVER_URI: http://config-server
+    hostname: auth
+    restart: always
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "9020:80"
+      - "9019:81"
+  product:
+    image: stuq-1160-emall/product-service
+    depends_on:
+      - config-server
+      - cart-db
+      - service-registry-consul
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      SPRING_PROFILES_ACTIVE: sandboxing
+      CONSUL_HOST: service-registry-consul
+      CONSUL_PORT: 8500
+      CONFIG_SERVER_URI: http://config-server
+    hostname: product
+    restart: always
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "9901:80"
+      - "9900:81"
+  order:
+    image: stuq-1160-emall/order-service
+    depends_on:
+      - config-server
+      - cart-db
+      - service-registry-consul
+    networks:
+      - stuq-1160-emall-net
+    environment:
+      SPRING_PROFILES_ACTIVE: sandboxing
+      CONSUL_HOST: service-registry-consul
+      CONSUL_PORT: 8500
+      CONFIG_SERVER_URI: http://config-server
+    hostname: order
+    restart: always
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid
+    ports:
+      - "9903:80"
+      - "9902:81"
+
+volumes:
+    db_data:
+
+networks:
+  stuq-1160-emall-net:
+    driver: bridge

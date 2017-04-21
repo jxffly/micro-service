@@ -12,7 +12,7 @@ ADD data/data-mysql.sql /emall/data/data-mysql.sql
 EXPOSE 80 81
 # You can use a RUN command to "touch" the jar file so that it has a file modification time (Docker creates all container files in an "unmodified" state by default). This actually isn’t important for the simple app that we wrote, but any static content (e.g. "index.html") would require the file to have a modification time.
 RUN sh -c 'touch /emall/auth-service-app.jar'
-ENV JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Dspring.config.location=file:/emall/config/application.yml"
+ENV JAVA_OPTS="-Djava.security.egd=file:/dev/./urandom -Dspring.config.location=file:/emall/config/bootstrap.yml"
 # 容器启动后需要执行的命令
 # To reduce Tomcat startup time we added a system property pointing to "/dev/urandom" as a source of entropy.
 ENTRYPOINT [ "sh", "-c", \
