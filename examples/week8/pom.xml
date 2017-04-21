@@ -15,6 +15,7 @@
 		<module>cart-service</module>
 		<module>account-service</module>
 		<module>product-service</module>
+		<module>order-service</module>
 	</modules>
 
 	<parent>
