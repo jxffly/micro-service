@@ -75,6 +75,7 @@
 							<include>**/*.yml</include>
 							<include>**/*.yaml</include>
 							<include>**/*.properties</include>
+							<include>**/*.jks</include>
 						</includes>
 					</resource>
 					<resource>
