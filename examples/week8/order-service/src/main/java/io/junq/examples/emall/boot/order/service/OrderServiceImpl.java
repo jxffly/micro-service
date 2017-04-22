@@ -74,7 +74,7 @@ public class OrderServiceImpl implements OrderService {
 			)
 	@Override
 	public EmallAPIResponse<User> getUserByDisplayId(String displayId) {
-		return restTemplate.
+		return loadBalanced.
 				exchange("http://account-service/v1/users/" + displayId,
 							HttpMethod.GET,
 							null,
