@@ -17,6 +17,8 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 
+import io.junq.examples.emall.boot.domain.User;
+
 /**
  * 用户账号数据访问
  * 

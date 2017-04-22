@@ -1,6 +1,6 @@
 package io.junq.examples.emall.boot.product.service;
 
-import io.junq.examples.emall.boot.product.domain.Product;
+import io.junq.examples.emall.boot.domain.Product;
 
 /**
  * 产品服务接口

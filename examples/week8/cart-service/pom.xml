@@ -20,6 +20,10 @@
 
 	<dependencies>
 		<dependency>
+			<groupId>io.junq.examples.emall.boot</groupId>
+			<artifactId>emall-api</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
 		</dependency>

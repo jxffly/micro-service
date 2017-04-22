@@ -19,9 +19,9 @@ import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import io.junq.examples.emall.boot.cart.domain.Cart;
 import io.junq.examples.emall.boot.cart.domain.CartRepository;
-import io.junq.examples.emall.boot.cart.domain.Item;
+import io.junq.examples.emall.boot.domain.Cart;
+import io.junq.examples.emall.boot.domain.Item;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest

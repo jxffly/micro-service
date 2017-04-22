@@ -1,4 +1,4 @@
-package io.junq.examples.emall.boot.product.domain;
+package io.junq.examples.emall.boot.domain;
 
 import java.util.ArrayList;
 import java.util.Date;

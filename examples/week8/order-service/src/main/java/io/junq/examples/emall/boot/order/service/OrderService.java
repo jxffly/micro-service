@@ -2,7 +2,7 @@ package io.junq.examples.emall.boot.order.service;
 
 import java.util.List;
 
-import io.junq.examples.emall.boot.order.domain.Order;
+import io.junq.examples.emall.boot.domain.Order;
 
 /**
  * 订单服务接口

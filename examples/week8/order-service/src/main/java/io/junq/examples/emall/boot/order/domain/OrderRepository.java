@@ -17,6 +17,8 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
+import io.junq.examples.emall.boot.domain.Order;
+
 /**
  * 订单数据访问
  * @author junqiangliu

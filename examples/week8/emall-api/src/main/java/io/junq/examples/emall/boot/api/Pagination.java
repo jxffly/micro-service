@@ -1,4 +1,4 @@
-package io.junq.examples.emall.boot.order.api;
+package io.junq.examples.emall.boot.api;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;

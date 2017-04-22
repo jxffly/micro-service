@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
 import io.junq.examples.emall.boot.account.domain.AccountRepository;
-import io.junq.examples.emall.boot.account.domain.User;
+import io.junq.examples.emall.boot.domain.User;
 
 /**
  * 用户账号服务实现

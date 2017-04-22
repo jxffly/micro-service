@@ -1,4 +1,4 @@
-package io.junq.examples.emall.boot.cart.api;
+package io.junq.examples.emall.boot.api;
 
 import java.util.List;
 

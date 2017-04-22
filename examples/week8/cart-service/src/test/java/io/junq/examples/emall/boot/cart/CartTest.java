@@ -14,8 +14,8 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import io.junq.examples.emall.boot.cart.domain.Cart;
-import io.junq.examples.emall.boot.cart.domain.Item;
+import io.junq.examples.emall.boot.domain.Cart;
+import io.junq.examples.emall.boot.domain.Item;
 
 public class CartTest {
 

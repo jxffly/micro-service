@@ -9,9 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.junq.examples.emall.boot.cart.domain.Cart;
 import io.junq.examples.emall.boot.cart.domain.CartRepository;
-import io.junq.examples.emall.boot.cart.domain.Item;
+import io.junq.examples.emall.boot.domain.Cart;
+import io.junq.examples.emall.boot.domain.Item;
 
 /**
  * 购物车服务实现

@@ -1,6 +1,6 @@
 package io.junq.examples.emall.boot.account.service;
 
-import io.junq.examples.emall.boot.account.domain.User;
+import io.junq.examples.emall.boot.domain.User;
 
 /**
  * 用户账号服务接口

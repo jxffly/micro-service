@@ -18,6 +18,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.StringUtils;
 
+import io.junq.examples.emall.boot.domain.Product;
+
 /**
  * 产品数据访问
  * @author junqiangliu

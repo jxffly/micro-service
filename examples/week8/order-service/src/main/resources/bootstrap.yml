@@ -15,4 +15,3 @@ spring:
         initial-interval: 5000
         max-attempts: 20
         max-interval: 100000
-      

@@ -1,4 +1,4 @@
-package io.junq.examples.emall.boot.product.api;
+package io.junq.examples.emall.boot.api;
 
 import org.springframework.core.MethodParameter;
 import org.springframework.http.MediaType;

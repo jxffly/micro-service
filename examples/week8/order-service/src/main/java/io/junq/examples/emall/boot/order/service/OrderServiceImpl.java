@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import io.junq.examples.emall.boot.order.domain.Order;
+import io.junq.examples.emall.boot.domain.Order;
 import io.junq.examples.emall.boot.order.domain.OrderRepository;
 
 /**

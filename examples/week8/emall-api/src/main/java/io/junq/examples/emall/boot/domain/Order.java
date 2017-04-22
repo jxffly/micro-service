@@ -1,4 +1,4 @@
-package io.junq.examples.emall.boot.order.domain;
+package io.junq.examples.emall.boot.domain;
 
 import java.util.Date;
 

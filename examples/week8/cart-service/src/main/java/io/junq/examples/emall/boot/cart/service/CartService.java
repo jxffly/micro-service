@@ -2,8 +2,8 @@ package io.junq.examples.emall.boot.cart.service;
 
 import java.util.List;
 
-import io.junq.examples.emall.boot.cart.domain.Cart;
-import io.junq.examples.emall.boot.cart.domain.Item;
+import io.junq.examples.emall.boot.domain.Cart;
+import io.junq.examples.emall.boot.domain.Item;
 
 /**
  * 购物车服务接口

@@ -1,4 +1,4 @@
-package io.junq.examples.emall.boot.cart.domain;
+package io.junq.examples.emall.boot.domain;
 
 import javax.validation.constraints.Min;
 

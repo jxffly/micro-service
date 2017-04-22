@@ -1,14 +1,8 @@
 package io.junq.examples.emall.boot.cart;
 
-import static io.restassured.RestAssured.when;
-import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.hasItems;
-
 import java.util.Arrays;
-import java.util.List;
 import java.util.UUID;
 
-import org.apache.http.HttpStatus;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,12 +17,10 @@ import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.context.jdbc.SqlGroup;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import io.junq.examples.emall.boot.cart.domain.Cart;
 import io.junq.examples.emall.boot.cart.domain.CartRepository;
-import io.junq.examples.emall.boot.cart.domain.Item;
+import io.junq.examples.emall.boot.domain.Cart;
+import io.junq.examples.emall.boot.domain.Item;
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
