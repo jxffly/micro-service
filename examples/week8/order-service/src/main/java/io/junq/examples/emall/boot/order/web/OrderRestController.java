@@ -13,9 +13,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
+import io.junq.examples.emall.boot.api.EmallAPIResponse;
 import io.junq.examples.emall.boot.domain.Order;
+import io.junq.examples.emall.boot.domain.User;
 import io.junq.examples.emall.boot.order.service.OrderService;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -32,7 +33,6 @@ import io.swagger.annotations.ApiResponses;
 @RestController("订单相关API")
 @RequestMapping(value = "/v1", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 @Configuration
-//@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class OrderRestController {
 	
 	private final static Logger LOGGER = LoggerFactory.getLogger(OrderRestController.class);
@@ -40,9 +40,6 @@ public class OrderRestController {
 	@Autowired
 	private OrderService orderService;
 	
-	@Autowired
-	RestTemplate userServiceRestTemplate;
-
 	@ApiOperation(value = "创建订单", notes = "")
 	@ApiImplicitParams({
 		
@@ -51,11 +48,18 @@ public class OrderRestController {
 		@ApiResponse(code = 201,message = "订单创建成功" ),
 	})
 	@RequestMapping(method = RequestMethod.POST, value = "/orders", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public Order createOrder(@ApiParam(name = "order", value = "待创建的订单对象json实例", required = true) @RequestBody @Validated Order order) {
+	public Order createOrder(@ApiParam(name = "order", value = "待创建的订单对象json实例", required = true) @RequestBody @Validated Order order) throws Exception {
 		LOGGER.debug("try to create order by order: " + order);
 		
-		String response = findUserById(order.getUserId());
-		LOGGER.debug("Api response from account-service: " + response);
+		EmallAPIResponse<User> response = orderService.getUserByDisplayId(order.getUserId());
+		if (response == null) {
+			throw new Exception("Fallback for fetching user from account-service.");
+		}
+		
+		User user = response.getData();
+		if (user == null) {
+			throw new IllegalArgumentException("Failed to fetch user for display id: " + order.getUserId());
+		}
 		
 		return orderService.createOrder(order);
 	}
@@ -80,8 +84,4 @@ public class OrderRestController {
 		return orderService.findOrdersByUserId(userId);
 	}
 	
-	private String findUserById(String userId) {
-		String response = userServiceRestTemplate.getForObject("http://account-service/v1/users/" + userId, String.class);
-		return response;
-	}
 }
