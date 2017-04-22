@@ -1,5 +1,7 @@
 package io.junq.examples.emall.boot.domain;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
@@ -9,17 +11,24 @@ import javax.validation.constraints.NotNull;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import io.junq.examples.emall.boot.api.EmallAPIConstants;
+import io.junq.examples.emall.boot.domain.User.Builder;
 import lombok.Data;
 
 @Data
+@JsonDeserialize(builder=Cart.Builder.class)
 public class Cart {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(Cart.class);
@@ -31,10 +40,10 @@ public class Cart {
 	
 	public List<Item> items;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern=EmallAPIConstants.DATETIME_FORMAT)
 	private Date createdAt;
 
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern=EmallAPIConstants.DATETIME_FORMAT)
 	private Date changedAt;
 	
 	public void removeItem(String itemId) {
@@ -122,6 +131,16 @@ public class Cart {
 			return this;
 		}
 		
+		@JsonProperty("createdAt")
+		public Builder withCreatedAt(String createdDateString) {
+			SimpleDateFormat sdf = new SimpleDateFormat(EmallAPIConstants.DATETIME_FORMAT);
+			try {
+				this.createdAt = sdf.parse(createdDateString);
+			} catch (ParseException e) {
+			}
+			return this;
+		}
+		
 		public Builder withChangedAt(Date changedAt) {
 			this.changedAt = changedAt;
 			return this;
@@ -129,6 +148,16 @@ public class Cart {
 		
 		public Builder withChangeAt(long changedTimestamp) {
 			this.changedAt = new DateTime(changedTimestamp).toDate();
+			return this;
+		}
+		
+		@JsonProperty("changedAt")
+		public Builder withChangedAt(String changedDateString) {
+			SimpleDateFormat sdf = new SimpleDateFormat(EmallAPIConstants.DATETIME_FORMAT);
+			try {
+				this.changedAt = sdf.parse(changedDateString);
+			} catch (ParseException e) {
+			}
 			return this;
 		}
 

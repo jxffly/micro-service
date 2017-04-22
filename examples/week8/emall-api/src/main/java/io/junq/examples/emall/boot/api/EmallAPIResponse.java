@@ -27,13 +27,17 @@ import lombok.Data;
  */
 @Data
 @JsonInclude(Include.NON_NULL)
-public class ApiResponse<T> {
+public class EmallAPIResponse<T> {
 	
 	private T data;
 	private Meta meta;
 	private Pagination pagination;
+	
+	public EmallAPIResponse() {
+		super();
+	}
     
-	public ApiResponse(T object) {
+	public EmallAPIResponse(T object) {
 		super();
 		
 		this.meta = new Meta();

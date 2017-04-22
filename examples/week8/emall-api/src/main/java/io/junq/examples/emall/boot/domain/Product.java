@@ -1,5 +1,7 @@
 package io.junq.examples.emall.boot.domain;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -8,16 +10,22 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 import org.springframework.util.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import io.junq.examples.emall.boot.api.EmallAPIConstants;
+import io.junq.examples.emall.boot.domain.User.Builder;
 import lombok.Data;
 
 @Data
+@JsonDeserialize(builder=Product.Builder.class)
 public class Product {
 	
 	public final static String SEPERATOR = ",";
@@ -122,8 +130,28 @@ public class Product {
 			return this;
 		}
 		
+		@JsonProperty("createdAt")
+		public Builder withCreatedAt(String createdDateString) {
+			SimpleDateFormat sdf = new SimpleDateFormat(EmallAPIConstants.DATETIME_FORMAT);
+			try {
+				this.createdAt = sdf.parse(createdDateString);
+			} catch (ParseException e) {
+			}
+			return this;
+		}
+		
 		public Builder withChangedAt(long changedTimestamp) {
 			this.changedAt = new DateTime(changedTimestamp).toDate();
+			return this;
+		}
+		
+		@JsonProperty("changedAt")
+		public Builder withChangedAt(String changedDateString) {
+			SimpleDateFormat sdf = new SimpleDateFormat(EmallAPIConstants.DATETIME_FORMAT);
+			try {
+				this.changedAt = sdf.parse(changedDateString);
+			} catch (ParseException e) {
+			}
 			return this;
 		}
 		

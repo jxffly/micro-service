@@ -1,5 +1,7 @@
 package io.junq.examples.emall.boot.domain;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import javax.validation.constraints.Min;
@@ -7,13 +9,19 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.DateTime;
+import org.joda.time.format.DateTimeFormat;
+import org.joda.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
+import io.junq.examples.emall.boot.api.EmallAPIConstants;
+import io.junq.examples.emall.boot.domain.User.Builder;
 import lombok.Data;
 
 @Data
+@JsonDeserialize(builder=Order.Builder.class)
 public class Order {
 	
 	public enum Status {
@@ -52,10 +60,10 @@ public class Order {
 	@NotNull
 	private Integer status;
 	
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern=EmallAPIConstants.DATETIME_FORMAT)
 	private Date createdAt;
 
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern=EmallAPIConstants.DATETIME_FORMAT)
 	private Date changedAt;
 	
 	@JsonProperty("payment_type")
@@ -87,6 +95,7 @@ public class Order {
 			return this;
 		}
 		
+		@JsonProperty("user_id")
 		public Builder withUserId(String userId) {
 			this.userId = userId;
 			return this;
@@ -107,6 +116,7 @@ public class Order {
 			return this;
 		}
 		
+		@JsonProperty("payment_type")
 		public Builder withPaymentType(String paymentType) {
 			this.paymentType = paymentType;
 			return this;
@@ -122,8 +132,28 @@ public class Order {
 			return this;
 		}
 		
+		@JsonProperty("createdAt")
+		public Builder withCreatedAt(String createdDateString) {
+			SimpleDateFormat sdf = new SimpleDateFormat(EmallAPIConstants.DATETIME_FORMAT);
+			try {
+				this.createdAt = sdf.parse(createdDateString);
+			} catch (ParseException e) {
+			}
+			return this;
+		}
+		
 		public Builder withChangedAt(long changedTimestamp) {
 			this.changedAt = new DateTime(changedTimestamp).toDate();
+			return this;
+		}
+		
+		@JsonProperty("changedAt")
+		public Builder withChangedAt(String changedDateString) {
+			SimpleDateFormat sdf = new SimpleDateFormat(EmallAPIConstants.DATETIME_FORMAT);
+			try {
+				this.changedAt = sdf.parse(changedDateString);
+			} catch (ParseException e) {
+			}
 			return this;
 		}
 		

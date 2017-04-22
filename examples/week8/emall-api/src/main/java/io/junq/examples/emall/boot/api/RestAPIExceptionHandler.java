@@ -21,7 +21,7 @@ public class RestAPIExceptionHandler implements ResponseBodyAdvice<Object> {
 			Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request,
 			ServerHttpResponse response) {
 		// TODO exception
-		ApiResponse apiRes = new ApiResponse(body);
+		EmallAPIResponse apiRes = new EmallAPIResponse(body);
 		return apiRes;
 	}
 

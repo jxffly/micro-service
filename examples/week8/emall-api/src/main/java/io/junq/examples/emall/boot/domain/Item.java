@@ -5,10 +5,12 @@ import javax.validation.constraints.Min;
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import lombok.Data;
 
 @Data
+@JsonDeserialize(builder=Item.Builder.class)
 public class Item {
 	
 	@NotBlank
