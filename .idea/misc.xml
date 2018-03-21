@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ASMPluginConfiguration">
+    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
+    <groovy codeStyle="LEGACY" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/emall/springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/emall/springboot/cart-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/cart-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/order-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/order-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/mailer-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/mailer-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/review-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/review-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/search-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/search-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/account-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/account-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/catalog-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/catalog-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/message-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/message-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/payment-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/payment-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/product-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/product-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/shipment-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/shipment-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/recommendation-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/recommendation-service/pom.properties" />
+        <option value="$PROJECT_DIR$/emall/springboot/push-notification-service/target/classes/META-INF/maven/io.junq.examples.emall.boot/push-notification-service/pom.properties" />
+        <option value="$PROJECT_DIR$/examples/week4/order-service/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week4/api-gateway-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week5/auth-service/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week5/api-gateway-zuul/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week5/simple-oauth-server/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week6/cart-service/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week7/cart-service/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week7/ship-service/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week7/service-registry-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week8/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week8/hystrix-dashboard/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 1/hello-springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/Week 2/account-service/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/Week 2/hello-dropwizard/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/product-service/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/emall-consul-client/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/emall-eureka-client/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/emall-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/account-service-consul/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/account-service-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/emall-redundant-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/examples/week 3/emall-redundant-eureka-server2/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/emall/springboot/account-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/cart-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/catalog-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/config" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/mailer-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/message-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/payment-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/product-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/push-notification-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/recommendation-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/review-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/search-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/emall/springboot/shipment-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/Week 2/account-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/Week 2/hello-dropwizard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 1/hello-springboot" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/account-service-consul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/account-service-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/emall-consul-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/emall-eureka-client" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/emall-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/emall-redundant-eureka-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/emall-redundant-eureka-server2" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week 3/product-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week4/api-gateway-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week4/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week5/api-gateway-zuul" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week5/auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week5/simple-oauth-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week6/cart-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week7/cart-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week7/service-registry-eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week7/ship-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/account-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/auth-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/cart-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/config-server" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/emall-api" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/hystrix-dashboard" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/order-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/examples/week8/product-service" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
