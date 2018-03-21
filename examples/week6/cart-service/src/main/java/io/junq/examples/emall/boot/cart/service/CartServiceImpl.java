@@ -1,13 +1,13 @@
 package io.junq.examples.emall.boot.cart.service;
 
-import java.util.Arrays;
-import java.util.List;
-
-import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.CollectionUtils;
+
+import java.util.Arrays;
+import java.util.List;
 
 import io.junq.examples.emall.boot.cart.domain.Cart;
 import io.junq.examples.emall.boot.cart.domain.CartRepository;
@@ -85,7 +85,7 @@ public class CartServiceImpl implements CartService {
 			if (cart.hasItem(itemId)) {
 				cart.removeItem(itemId);
 				
-				if (CollectionUtils.sizeIsEmpty(cart.getItems())) {
+				if (CollectionUtils.isEmpty(cart.getItems())) {
 					cartRepo.deleteCartById(cart.getId());
 				} else {
 					cartRepo.updateCart(cart);	

@@ -1,5 +1,7 @@
 package io.junq.examples.emall.boot.auth;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -7,11 +9,13 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.oauth2.provider.token.RemoteTokenServices;
 
 
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(WebSecurityConfiguration.class);
+
 
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -24,12 +28,13 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 			.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
 			.and()
 			.authorizeRequests().anyRequest().permitAll();
-			;
-		
+
 	}
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		LOGGER.info("+++++++++++++++++++++++++++++++++");
+		LOGGER.info("begin to install auth configure");
 		auth.inMemoryAuthentication() // 测试用，内存保存账号、密码
 			.withUser("user1").password("password1").roles("USER") // 普通用户，用户名uesr1、密码password1 
 			.and()

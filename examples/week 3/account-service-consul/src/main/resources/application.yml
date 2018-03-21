@@ -22,7 +22,7 @@ spring:
         - 192.168
         - 10.0
     consul:
-      host: localhost
+      host: 127.0.0.1
       port: 8500
       discovery:
         enable: true 
@@ -31,7 +31,7 @@ spring:
         healthCheckInterval: 15s # 健康检测时间间隔
         tags: dev # 服务的标签
   datasource:
-    url: jdbc:mysql://localhost:3306/emall
-    username: emall
-    password: emallPwd
-    driver-class-name: com.mysql.jdbc.Driver
+     url: jdbc:mysql://localhost:3306/emall?characterEncoding=utf8&useSSL=true
+     username: fly
+     password: 123456
+     driver-class-name: com.mysql.jdbc.Driver

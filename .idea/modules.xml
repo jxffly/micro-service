@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/account-service (1).iml" filepath="$PROJECT_DIR$/account-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-service (4).iml" filepath="$PROJECT_DIR$/account-service (4).iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-service (5).iml" filepath="$PROJECT_DIR$/account-service (5).iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-service-consul.iml" filepath="$PROJECT_DIR$/account-service-consul.iml" />
+      <module fileurl="file://$PROJECT_DIR$/account-service-eureka.iml" filepath="$PROJECT_DIR$/account-service-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-gateway-zuul (1).iml" filepath="$PROJECT_DIR$/api-gateway-zuul (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/api-gateway-zuul (2).iml" filepath="$PROJECT_DIR$/api-gateway-zuul (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service (1).iml" filepath="$PROJECT_DIR$/auth-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service (2).iml" filepath="$PROJECT_DIR$/auth-service (2).iml" />
+      <module fileurl="file://$PROJECT_DIR$/auth-service (3).iml" filepath="$PROJECT_DIR$/auth-service (3).iml" />
+      <module fileurl="file://$PROJECT_DIR$/cart-service (1).iml" filepath="$PROJECT_DIR$/cart-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/cart-service (4).iml" filepath="$PROJECT_DIR$/cart-service (4).iml" />
+      <module fileurl="file://$PROJECT_DIR$/cart-service (5).iml" filepath="$PROJECT_DIR$/cart-service (5).iml" />
+      <module fileurl="file://$PROJECT_DIR$/cart-service (6).iml" filepath="$PROJECT_DIR$/cart-service (6).iml" />
+      <module fileurl="file://$PROJECT_DIR$/catalog-service (1).iml" filepath="$PROJECT_DIR$/catalog-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/config.iml" filepath="$PROJECT_DIR$/config.iml" />
+      <module fileurl="file://$PROJECT_DIR$/config-server.iml" filepath="$PROJECT_DIR$/config-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-api.iml" filepath="$PROJECT_DIR$/emall-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-consul-client.iml" filepath="$PROJECT_DIR$/emall-consul-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-eureka-client.iml" filepath="$PROJECT_DIR$/emall-eureka-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-eureka-server.iml" filepath="$PROJECT_DIR$/emall-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-microservice-example.iml" filepath="$PROJECT_DIR$/emall-microservice-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-parent.iml" filepath="$PROJECT_DIR$/emall-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-redundant-eureka-server.iml" filepath="$PROJECT_DIR$/emall-redundant-eureka-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/emall-redundant-eureka-server2.iml" filepath="$PROJECT_DIR$/emall-redundant-eureka-server2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway.iml" filepath="$PROJECT_DIR$/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-dropwizard.iml" filepath="$PROJECT_DIR$/hello-dropwizard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hello-springboot.iml" filepath="$PROJECT_DIR$/hello-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hystrix-dashboard.iml" filepath="$PROJECT_DIR$/hystrix-dashboard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mailer-service (1).iml" filepath="$PROJECT_DIR$/mailer-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/message-service (1).iml" filepath="$PROJECT_DIR$/message-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-service (1).iml" filepath="$PROJECT_DIR$/order-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-service (4).iml" filepath="$PROJECT_DIR$/order-service (4).iml" />
+      <module fileurl="file://$PROJECT_DIR$/order-service (5).iml" filepath="$PROJECT_DIR$/order-service (5).iml" />
+      <module fileurl="file://$PROJECT_DIR$/payment-service (1).iml" filepath="$PROJECT_DIR$/payment-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-service (1).iml" filepath="$PROJECT_DIR$/product-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-service (4).iml" filepath="$PROJECT_DIR$/product-service (4).iml" />
+      <module fileurl="file://$PROJECT_DIR$/product-service (5).iml" filepath="$PROJECT_DIR$/product-service (5).iml" />
+      <module fileurl="file://$PROJECT_DIR$/push-notification-service (1).iml" filepath="$PROJECT_DIR$/push-notification-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/recommendation-service (1).iml" filepath="$PROJECT_DIR$/recommendation-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/review-service (1).iml" filepath="$PROJECT_DIR$/review-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/search-service (1).iml" filepath="$PROJECT_DIR$/search-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/service-registry-eureka.iml" filepath="$PROJECT_DIR$/service-registry-eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ship-service.iml" filepath="$PROJECT_DIR$/ship-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shipment-service (1).iml" filepath="$PROJECT_DIR$/shipment-service (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/simple-oauth-server.iml" filepath="$PROJECT_DIR$/simple-oauth-server.iml" />
+    </modules>
+  </component>
+</project>

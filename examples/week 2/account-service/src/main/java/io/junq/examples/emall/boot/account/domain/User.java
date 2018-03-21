@@ -1,14 +1,14 @@
 package io.junq.examples.emall.boot.account.domain;
 
-import java.util.Date;
-
-import javax.validation.constraints.Min;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.joda.time.DateTime;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import java.util.Date;
+
+import javax.validation.constraints.Min;
 
 import lombok.Data;
 
@@ -23,7 +23,7 @@ public class User {
 	private String displayName;
 
 	@Min(0)
-	private Integer gender;
+	private Integer gender=0;
 
 	@NotBlank
 	private String avatar;
@@ -40,7 +40,7 @@ public class User {
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
 	private Date createdAt;
 
-	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm ZZZZZ")
+	@JsonFormat(shape=JsonFormat.Shape.NUMBER, pattern="yyyy-MM-dd HH:mm ZZZZZ")
 	private Date changedAt;
 
 	protected User() {

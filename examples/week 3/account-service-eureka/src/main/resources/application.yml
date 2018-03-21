@@ -22,17 +22,14 @@ spring:
         - 192.168
         - 10.0
   datasource:
-    url: jdbc:mysql://localhost:3306/emall
-    username: emall
-    password: emallPwd
-    driver-class-name: com.mysql.jdbc.Driver
-
+       url: jdbc:mysql://localhost:3306/emall?characterEncoding=utf8&useSSL=true
+       username: fly
+       password: 123456
+       driver-class-name: com.mysql.jdbc.Driver
 eureka:
   client:
     healthcheck:
       enabled: true
-    serviceUrl:
-      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
   instance:
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health

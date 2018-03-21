@@ -10,5 +10,6 @@ management:
 spring:
   application:
     name: emall-client
-    
-    
+eureka:
+  client:
+    enabled: true

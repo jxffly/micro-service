@@ -1,8 +1,5 @@
 package io.junq.examples.emall.boot.cart.web;
 
-import java.util.List;
-
-import org.apache.commons.collections.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 import io.junq.examples.emall.boot.cart.domain.Cart;
 import io.junq.examples.emall.boot.cart.domain.Item;

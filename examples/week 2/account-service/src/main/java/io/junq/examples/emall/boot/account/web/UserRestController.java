@@ -1,5 +1,6 @@
 package io.junq.examples.emall.boot.account.web;
 
+import org.hibernate.validator.constraints.Length;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,13 +37,11 @@ public class UserRestController {
 	private AccountService accountService;
 
 	@ApiOperation(value = "创建用户", notes = "")
-	@ApiImplicitParams({
-		
-	})
+	@ApiImplicitParams({})
 	@ApiResponses({
 		@ApiResponse(code = 201,message = "用户创建成功" ),
 	})
-	@RequestMapping(method = RequestMethod.POST, value = "/users", consumes = {MediaType.APPLICATION_JSON_UTF8_VALUE})
+	@RequestMapping(method = RequestMethod.POST, value = "/users")
 	public User createUser(@ApiParam(name = "user", value = "待创建的用户对象json实例", required = true) @RequestBody @Validated User user) {
 		LOGGER.debug("try to create user by user: " + user);
 		return accountService.createUser(user);
@@ -53,7 +52,8 @@ public class UserRestController {
 			@ApiImplicitParam(name = "userId", paramType = "path", value = "用户id", required = true, dataType = "String")
 		})
 	@RequestMapping(method = RequestMethod.GET, value = "/users/{userId}")
-	public User findUserByDisplayId(@PathVariable String userId) {
+	@Validated
+	public User findUserByDisplayId(@PathVariable  @Length(message = "length to short",min = 3) String userId) {
 		LOGGER.debug("try to find user by display_id: " + userId);
 		return accountService.findUserByDisplayId(userId);
 	}

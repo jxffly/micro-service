@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
@@ -13,12 +14,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+
 @SpringBootApplication
 @EnableAuthorizationServer
 @EnableResourceServer
 @ComponentScan({ "io.junq.examples.emall" })
-@RestController
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@RestController
+@RequestMapping(value = "/v2", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 public class SimpleOauthServerApplication {
 
 	public static void main(String[] args) {

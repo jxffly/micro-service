@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="account-service (1)" />
+        <module name="account-service (4)" />
+        <module name="account-service (5)" />
+        <module name="account-service-consul" />
+        <module name="account-service-eureka" />
+        <module name="api-gateway-zuul (1)" />
+        <module name="api-gateway-zuul (2)" />
+        <module name="auth-service (1)" />
+        <module name="auth-service (2)" />
+        <module name="auth-service (3)" />
+        <module name="cart-service (1)" />
+        <module name="cart-service (4)" />
+        <module name="cart-service (5)" />
+        <module name="cart-service (6)" />
+        <module name="catalog-service (1)" />
+        <module name="config" />
+        <module name="config-server" />
+        <module name="emall-api" />
+        <module name="emall-consul-client" />
+        <module name="emall-eureka-client" />
+        <module name="emall-eureka-server" />
+        <module name="emall-redundant-eureka-server" />
+        <module name="emall-redundant-eureka-server (1)" />
+        <module name="emall-redundant-eureka-server2" />
+        <module name="gateway" />
+        <module name="hello-dropwizard" />
+        <module name="hello-springboot" />
+        <module name="hystrix-dashboard" />
+        <module name="mailer-service (1)" />
+        <module name="message-service (1)" />
+        <module name="order-service (1)" />
+        <module name="order-service (4)" />
+        <module name="order-service (5)" />
+        <module name="payment-service (1)" />
+        <module name="product-service (1)" />
+        <module name="product-service (4)" />
+        <module name="product-service (5)" />
+        <module name="push-notification-service (1)" />
+        <module name="recommendation-service (1)" />
+        <module name="review-service (1)" />
+        <module name="search-service (1)" />
+        <module name="service-registry-eureka" />
+        <module name="ship-service" />
+        <module name="shipment-service (1)" />
+        <module name="simple-oauth-server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="account-service" target="1.5" />
+      <module name="account-service (1)" target="1.8" />
+      <module name="account-service (2)" target="1.5" />
+      <module name="account-service (3)" target="1.8" />
+      <module name="account-service (4)" target="1.8" />
+      <module name="account-service (5)" target="1.8" />
+      <module name="account-service-consul" target="1.8" />
+      <module name="account-service-eureka" target="1.8" />
+      <module name="api-gateway-zuul (1)" target="1.8" />
+      <module name="api-gateway-zuul (2)" target="1.8" />
+      <module name="auth-service (1)" target="1.8" />
+      <module name="auth-service (2)" target="1.8" />
+      <module name="auth-service (3)" target="1.8" />
+      <module name="cart-service" target="1.5" />
+      <module name="cart-service (1)" target="1.8" />
+      <module name="cart-service (2)" target="1.5" />
+      <module name="cart-service (3)" target="1.8" />
+      <module name="cart-service (4)" target="1.8" />
+      <module name="cart-service (5)" target="1.8" />
+      <module name="cart-service (6)" target="1.8" />
+      <module name="catalog-service" target="1.5" />
+      <module name="catalog-service (1)" target="1.8" />
+      <module name="catalog-service (2)" target="1.5" />
+      <module name="catalog-service (3)" target="1.8" />
+      <module name="config" target="1.8" />
+      <module name="config-server" target="1.8" />
+      <module name="emall-api" target="1.8" />
+      <module name="emall-consul-client" target="1.8" />
+      <module name="emall-eureka-client" target="1.8" />
+      <module name="emall-eureka-server" target="1.8" />
+      <module name="emall-microservice-example" target="1.5" />
+      <module name="emall-parent" target="1.8" />
+      <module name="emall-redundant-eureka-server" target="1.8" />
+      <module name="emall-redundant-eureka-server (1)" target="1.8" />
+      <module name="emall-redundant-eureka-server2" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="hello-dropwizard" target="1.5" />
+      <module name="hello-springboot" target="1.8" />
+      <module name="hystrix-dashboard" target="1.8" />
+      <module name="mailer-service" target="1.5" />
+      <module name="mailer-service (1)" target="1.8" />
+      <module name="mailer-service (2)" target="1.5" />
+      <module name="mailer-service (3)" target="1.8" />
+      <module name="message-service" target="1.5" />
+      <module name="message-service (1)" target="1.8" />
+      <module name="message-service (2)" target="1.5" />
+      <module name="message-service (3)" target="1.8" />
+      <module name="order-service" target="1.5" />
+      <module name="order-service (1)" target="1.8" />
+      <module name="order-service (2)" target="1.5" />
+      <module name="order-service (3)" target="1.8" />
+      <module name="order-service (4)" target="1.8" />
+      <module name="order-service (5)" target="1.8" />
+      <module name="payment-service" target="1.5" />
+      <module name="payment-service (1)" target="1.8" />
+      <module name="payment-service (2)" target="1.5" />
+      <module name="payment-service (3)" target="1.8" />
+      <module name="product-service" target="1.5" />
+      <module name="product-service (1)" target="1.8" />
+      <module name="product-service (2)" target="1.5" />
+      <module name="product-service (3)" target="1.8" />
+      <module name="product-service (4)" target="1.8" />
+      <module name="product-service (5)" target="1.8" />
+      <module name="push-notification-service" target="1.5" />
+      <module name="push-notification-service (1)" target="1.8" />
+      <module name="push-notification-service (2)" target="1.5" />
+      <module name="push-notification-service (3)" target="1.8" />
+      <module name="recommendation-service" target="1.5" />
+      <module name="recommendation-service (1)" target="1.8" />
+      <module name="recommendation-service (2)" target="1.5" />
+      <module name="recommendation-service (3)" target="1.8" />
+      <module name="review-service" target="1.5" />
+      <module name="review-service (1)" target="1.8" />
+      <module name="review-service (2)" target="1.5" />
+      <module name="review-service (3)" target="1.8" />
+      <module name="search-service" target="1.5" />
+      <module name="search-service (1)" target="1.8" />
+      <module name="search-service (2)" target="1.5" />
+      <module name="search-service (3)" target="1.8" />
+      <module name="service-registry-eureka" target="1.8" />
+      <module name="ship-service" target="1.8" />
+      <module name="shipment-service" target="1.5" />
+      <module name="shipment-service (1)" target="1.8" />
+      <module name="shipment-service (2)" target="1.5" />
+      <module name="shipment-service (3)" target="1.8" />
+      <module name="simple-oauth-server" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
